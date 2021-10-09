@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
 
     bool cannotJump = false;
 
+    bool isSliding;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,17 +44,42 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isSliding = true;
+            cannotJump = true;
+        }
+        else
+        {
+            isSliding = false;
+            cannotJump = false;
+        }
+
         Win();
 
         Lose();
 
         Move();
+
+        Slide();
     }
 
     void Move()
     {
         transform.position += Vector3.forward * speed * Time.deltaTime;
         transform.position += Vector3.right * horizontalInput * horiSpeed * Time.deltaTime;
+    }
+
+    void Slide()
+    {
+        if (isSliding)
+        {
+            transform.rotation = Quaternion.Euler(90, 0, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     private bool IsGrounded()
