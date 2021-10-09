@@ -20,14 +20,14 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnObstacle()
     {
-        int obstacleSpawnIndex = Random.Range(0, 3);
-        int obstacleSpawnIndex2 = Random.Range(0, 3);
+        int obstacleSpawnIndex = Random.Range(0, 6);
+        int obstacleSpawnIndex2 = Random.Range(0, 6);
 
         if (obstacleSpawnIndex == obstacleSpawnIndex2)
         {
             while(obstacleSpawnIndex2 == obstacleSpawnIndex)
             {
-                obstacleSpawnIndex2 = Random.Range(0, 3);
+                obstacleSpawnIndex2 = Random.Range(0, 6);
             }
         }
 
