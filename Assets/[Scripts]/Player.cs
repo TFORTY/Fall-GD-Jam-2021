@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Obstacle")
         {
-            if (collision.contacts[0].normal.z == -1)
+            if (collision.contacts[0].normal.z < -0.5f)
             {
                 rb.AddForce(collision.contacts[0].normal * bounceForce, ForceMode.Impulse);
             }
