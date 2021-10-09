@@ -114,6 +114,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Coffee")
+        {
+            Destroy(other.gameObject);
+            FindObjectOfType<TimerText>().LowerTime(5);
+        }
+    }
+
     private void Win()
     {
         if (hasWon)

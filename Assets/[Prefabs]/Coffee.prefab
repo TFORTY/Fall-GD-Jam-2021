@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4390379764743562074}
   - component: {fileID: 1948145949734508432}
   - component: {fileID: 8031472926532439877}
+  - component: {fileID: 2836894573077506577}
   m_Layer: 0
   m_Name: Coffee
-  m_TagString: Untagged
+  m_TagString: Coffee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,3 +100,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: c0337e5b0528d3d449ea7a8a7bebce71, type: 3}
+--- !u!114 &2836894573077506577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753294659565125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433c07645f8ad1744998ce006b1ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

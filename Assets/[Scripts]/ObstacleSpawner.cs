@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
+    [SerializeField] bool spawnCoffee;
+
     // Start is called before the first frame update
     void Start()
     {
         SpawnObstacle();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public GameObject obstaclePrefab;
+    public GameObject coffeePrefab;
 
     void SpawnObstacle()
     {
@@ -36,5 +33,22 @@ public class ObstacleSpawner : MonoBehaviour
 
         Instantiate(obstaclePrefab, spawnPoint.position, obstaclePrefab.transform.rotation);
         Instantiate(obstaclePrefab, spawnPoint2.position, obstaclePrefab.transform.rotation);
+
+        if (spawnCoffee)
+        {
+            int coffeeSpawnIndex = Random.Range(3, 6);
+
+            if (coffeeSpawnIndex == obstacleSpawnIndex || coffeeSpawnIndex == obstacleSpawnIndex2)
+            {
+                while (coffeeSpawnIndex == obstacleSpawnIndex || coffeeSpawnIndex == obstacleSpawnIndex2)
+                {
+                    coffeeSpawnIndex = Random.Range(0, 6);
+                }
+            }
+
+            Transform coffeSpawn = transform.GetChild(coffeeSpawnIndex).transform;
+            Instantiate(coffeePrefab, coffeSpawn.position, coffeePrefab.transform.rotation);
+        }
+
     }
 }
