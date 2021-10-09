@@ -47,7 +47,6 @@ public class Player : MonoBehaviour
         Lose();
 
         Move();
-    
     }
 
     void Move()
