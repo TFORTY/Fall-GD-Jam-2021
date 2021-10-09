@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     bool hasWon;
 
+    bool cannotJump = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space) && !cannotJump)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
@@ -61,6 +63,15 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Finish")
         {
             hasWon = true;
+        }
+
+        if (collision.gameObject.tag == "Obstacle")
+        {       
+            cannotJump = true;
+        }
+        else
+        {
+            cannotJump = false;
         }
     }
 
