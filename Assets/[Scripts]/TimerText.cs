@@ -7,7 +7,7 @@ public class TimerText : MonoBehaviour
 {
     public Text timerText;
 
-    public float timer = 10.0f;
+    public float timer = 30.0f;
 
     public static bool isTimeOut = false;
 
@@ -15,19 +15,19 @@ public class TimerText : MonoBehaviour
     void Start()
     {
         timerText = GetComponent<Text>();
-        timerText.text = timer.ToString("0");
+        timerText.text = timer.ToString("0.0");
     }
 
     // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
-        timerText.text = timer.ToString("0");
+        timerText.text = timer.ToString("0.0");
 
         if (timer <= 0)
         {
             isTimeOut = true;
-            timer = 10.0f;
+            timer = 30.0f;
         }
         else
         {
@@ -38,5 +38,15 @@ public class TimerText : MonoBehaviour
     public static bool IsTimeOut()
     {
         return isTimeOut;
+    }
+
+    public void LowerTime(float seconds)
+    {
+        timer -= seconds;
+    }
+
+    public void IncreaseTime(float seconds)
+    {
+        timer += seconds;
     }
 }

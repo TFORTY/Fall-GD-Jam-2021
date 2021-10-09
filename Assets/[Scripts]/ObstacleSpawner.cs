@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
+    [SerializeField] bool spawnItem;
+
     // Start is called before the first frame update
     void Start()
     {
         SpawnObstacle();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] GameObject obstaclePrefab;
 
-    public GameObject obstaclePrefab;
+    [SerializeField] List<GameObject> itemList;
 
     void SpawnObstacle()
     {
@@ -36,5 +34,25 @@ public class ObstacleSpawner : MonoBehaviour
 
         Instantiate(obstaclePrefab, spawnPoint.position, obstaclePrefab.transform.rotation);
         Instantiate(obstaclePrefab, spawnPoint2.position, obstaclePrefab.transform.rotation);
+
+        if (spawnItem)
+        {
+            int itemSpawnIndex = Random.Range(3, 6);
+
+            if (itemSpawnIndex == obstacleSpawnIndex || itemSpawnIndex == obstacleSpawnIndex2)
+            {
+                while (itemSpawnIndex == obstacleSpawnIndex || itemSpawnIndex == obstacleSpawnIndex2)
+                {
+                    itemSpawnIndex = Random.Range(0, 6);
+                }
+            }
+
+            Transform itemSpawn = transform.GetChild(itemSpawnIndex).transform;
+
+            int itemIndex = Random.Range(0, 2);
+
+            Instantiate(itemList[itemIndex], itemSpawn.position, itemList[itemIndex].transform.rotation);
+        }
+
     }
 }

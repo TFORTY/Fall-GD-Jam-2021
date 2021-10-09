@@ -176,7 +176,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f0e9e767e106843a84d7c993313b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 1052827224379271002, guid: 1fd5ba70e5ed3d44d840bcd95d217a0f, type: 3}
+  spawnItem: 0
+  obstaclePrefab: {fileID: 2134046785598599935, guid: c982643dce7e6d94cabfecfa433eb844, type: 3}
+  itemList:
+  - {fileID: 2753294659565125, guid: 11a460b9b9c676e42ad2637d033dca42, type: 3}
+  - {fileID: 2218580281381853319, guid: 6af1fdd04ba32ca42b400c1b3f2fe8c8, type: 3}
 --- !u!1 &3268061351442396014
 GameObject:
   m_ObjectHideFlags: 0
