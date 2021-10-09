@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float speed = 5.0f;
     public Rigidbody rb;
     private Vector3 forwardDirection;
-    private Vector3 horizontalMovement; 
+    private Vector3 horizontalMovement;
     private float horizontalInput;
     public float horiSpeed = 2.0f;
 
@@ -17,11 +18,15 @@ public class PlayerMovement : MonoBehaviour
 
     public CapsuleCollider col;
 
+    bool hasWon;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
+
+        hasWon = false;
     }
 
     // Update is called once per frame
@@ -29,10 +34,14 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
-       if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+
+        Win();
+
+        Lose();
     }
 
     private void FixedUpdate()
@@ -45,5 +54,26 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * 0.9f, groundLayer);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Finish")
+        {
+            hasWon = true;
+        }
+    }
+
+    private void Win()
+    {
+        if (hasWon)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+    }
+
+    private void Lose()
+    {
+        
     }
 }
