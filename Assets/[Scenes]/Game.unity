@@ -1511,6 +1511,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 555290089885464630, guid: 7eb09443e449e264fa067a1885aa3054, type: 3}
+      propertyPath: bounceForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 555290089885464630, guid: 7eb09443e449e264fa067a1885aa3054, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
