@@ -85,6 +85,10 @@ public class Player : MonoBehaviour
 
     private void Lose()
     {
-        
+        if (TimerText.IsTimeOut())
+        {
+            SceneManager.LoadScene("EndScene");
+            TimerText.isTimeOut = false;
+        }
     }
 }
