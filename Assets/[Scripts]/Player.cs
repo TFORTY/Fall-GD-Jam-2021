@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float startSpeed = 5.0f;
     public Rigidbody rb;
     private Vector3 forwardDirection;
     private Vector3 horizontalMovement;
@@ -25,9 +25,14 @@ public class Player : MonoBehaviour
 
     bool isSliding;
 
+    float speed;
+    float targetSpeedupPos = -10;
+
     // Start is called before the first frame update
     void Start()
     {
+        speed = startSpeed;
+
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
 
@@ -53,6 +58,12 @@ public class Player : MonoBehaviour
         {
             isSliding = false;
             cannotJump = false;
+        }
+
+        if (transform.position.z > targetSpeedupPos)
+        {
+            speed *= 1.1f;
+            targetSpeedupPos += 10;
         }
 
         Win();
