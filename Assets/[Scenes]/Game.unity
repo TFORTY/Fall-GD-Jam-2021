@@ -374,6 +374,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
+      propertyPath: spawnItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
       propertyPath: spawnCoffee
       value: 1
       objectReference: {fileID: 0}
@@ -892,6 +896,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
+      propertyPath: spawnItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
       propertyPath: spawnCoffee
       value: 1
       objectReference: {fileID: 0}
@@ -1176,6 +1184,10 @@ PrefabInstance:
     - target: {fileID: 2680499632174545960, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
+      propertyPath: spawnItem
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
       propertyPath: spawnCoffee
@@ -1559,6 +1571,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
+      propertyPath: spawnItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
       propertyPath: spawnCoffee
       value: 1
       objectReference: {fileID: 0}
@@ -1627,6 +1643,10 @@ PrefabInstance:
     - target: {fileID: 2680499632174545960, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
+      propertyPath: spawnItem
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
       propertyPath: spawnCoffee

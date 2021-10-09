@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] bool spawnCoffee;
+    [SerializeField] bool spawnItem;
 
     // Start is called before the first frame update
     void Start()
@@ -12,8 +12,9 @@ public class ObstacleSpawner : MonoBehaviour
         SpawnObstacle();
     }
 
-    public GameObject obstaclePrefab;
-    public GameObject coffeePrefab;
+    [SerializeField] GameObject obstaclePrefab;
+
+    [SerializeField] List<GameObject> itemList;
 
     void SpawnObstacle()
     {
@@ -34,20 +35,23 @@ public class ObstacleSpawner : MonoBehaviour
         Instantiate(obstaclePrefab, spawnPoint.position, obstaclePrefab.transform.rotation);
         Instantiate(obstaclePrefab, spawnPoint2.position, obstaclePrefab.transform.rotation);
 
-        if (spawnCoffee)
+        if (spawnItem)
         {
-            int coffeeSpawnIndex = Random.Range(3, 6);
+            int itemSpawnIndex = Random.Range(3, 6);
 
-            if (coffeeSpawnIndex == obstacleSpawnIndex || coffeeSpawnIndex == obstacleSpawnIndex2)
+            if (itemSpawnIndex == obstacleSpawnIndex || itemSpawnIndex == obstacleSpawnIndex2)
             {
-                while (coffeeSpawnIndex == obstacleSpawnIndex || coffeeSpawnIndex == obstacleSpawnIndex2)
+                while (itemSpawnIndex == obstacleSpawnIndex || itemSpawnIndex == obstacleSpawnIndex2)
                 {
-                    coffeeSpawnIndex = Random.Range(0, 6);
+                    itemSpawnIndex = Random.Range(0, 6);
                 }
             }
 
-            Transform coffeSpawn = transform.GetChild(coffeeSpawnIndex).transform;
-            Instantiate(coffeePrefab, coffeSpawn.position, coffeePrefab.transform.rotation);
+            Transform itemSpawn = transform.GetChild(itemSpawnIndex).transform;
+
+            int itemIndex = Random.Range(0, 2);
+
+            Instantiate(itemList[itemIndex], itemSpawn.position, itemList[itemIndex].transform.rotation);
         }
 
     }

@@ -44,4 +44,9 @@ public class TimerText : MonoBehaviour
     {
         timer -= seconds;
     }
+
+    public void IncreaseTime(float seconds)
+    {
+        timer += seconds;
+    }
 }
