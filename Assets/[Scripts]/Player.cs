@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
 
         if (transform.position.z > targetSpeedupPos)
         {
-            speed *= 1.1f;
+            speed *= 1.05f;
             targetSpeedupPos += 10;
         }
 
