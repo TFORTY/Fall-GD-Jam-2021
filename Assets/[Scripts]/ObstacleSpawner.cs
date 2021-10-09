@@ -20,9 +20,21 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnObstacle()
     {
-        int obstacleSpawnIndex = Random.Range(0, 3);
+        int obstacleSpawnIndex = Random.Range(0, 6);
+        int obstacleSpawnIndex2 = Random.Range(0, 6);
+
+        if (obstacleSpawnIndex == obstacleSpawnIndex2)
+        {
+            while(obstacleSpawnIndex2 == obstacleSpawnIndex)
+            {
+                obstacleSpawnIndex2 = Random.Range(0, 6);
+            }
+        }
+
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
+        Transform spawnPoint2 = transform.GetChild(obstacleSpawnIndex2).transform;
 
         Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
+        Instantiate(obstaclePrefab, spawnPoint2.position, Quaternion.identity, transform);
     }
 }

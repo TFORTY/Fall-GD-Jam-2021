@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float startSpeed = 5.0f;
     public Rigidbody rb;
     private Vector3 forwardDirection;
     private Vector3 horizontalMovement;
@@ -23,9 +23,16 @@ public class Player : MonoBehaviour
 
     bool cannotJump = false;
 
+    bool isSliding;
+
+    float speed;
+    float targetSpeedupPos = -10;
+
     // Start is called before the first frame update
     void Start()
     {
+        speed = startSpeed;
+
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
 
@@ -42,18 +49,48 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isSliding = true;
+            cannotJump = true;
+        }
+        else
+        {
+            isSliding = false;
+            cannotJump = false;
+        }
+
+        if (transform.position.z > targetSpeedupPos)
+        {
+            speed *= 1.1f;
+            targetSpeedupPos += 10;
+        }
+
         Win();
 
         Lose();
 
         Move();
-    
+
+        Slide();
     }
 
     void Move()
     {
         transform.position += Vector3.forward * speed * Time.deltaTime;
         transform.position += Vector3.right * horizontalInput * horiSpeed * Time.deltaTime;
+    }
+
+    void Slide()
+    {
+        if (isSliding)
+        {
+            transform.rotation = Quaternion.Euler(90, 0, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     private bool IsGrounded()
