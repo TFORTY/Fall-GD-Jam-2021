@@ -106,6 +106,12 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             FindObjectOfType<TimerText>().LowerTime(5);
         }
+
+        if (other.gameObject.tag == "Bottle")
+        {
+            Destroy(other.gameObject);
+            FindObjectOfType<TimerText>().IncreaseTime(2);
+        }
     }
 
     private void Win()
