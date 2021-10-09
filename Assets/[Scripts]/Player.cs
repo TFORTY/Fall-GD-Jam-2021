@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private Vector3 horizontalMovement;
     private float horizontalInput;
     public float horiSpeed = 2.0f;
+    public float bounceForce = 2.0f;
 
     public LayerMask groundLayer;
 
@@ -44,13 +45,15 @@ public class Player : MonoBehaviour
         Win();
 
         Lose();
+
+        Move();
+    
     }
 
-    private void FixedUpdate()
+    void Move()
     {
-        forwardDirection = transform.forward * speed * Time.deltaTime;
-        horizontalMovement = transform.right * horizontalInput * speed * Time.deltaTime * horiSpeed;
-        rb.MovePosition(rb.position + forwardDirection + horizontalMovement);
+        transform.position += Vector3.forward * speed * Time.deltaTime;
+        transform.position += Vector3.right * horizontalInput * horiSpeed * Time.deltaTime;
     }
 
     private bool IsGrounded()
@@ -66,12 +69,11 @@ public class Player : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "Obstacle")
-        {       
-            cannotJump = true;
-        }
-        else
         {
-            cannotJump = false;
+            if (collision.contacts[0].normal.z == -1)
+            {
+                rb.AddForce(collision.contacts[0].normal * bounceForce, ForceMode.Impulse);
+            }
         }
     }
 
