@@ -34,7 +34,7 @@ public class ObstacleSpawner : MonoBehaviour
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
         Transform spawnPoint2 = transform.GetChild(obstacleSpawnIndex2).transform;
 
-        Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
-        Instantiate(obstaclePrefab, spawnPoint2.position, Quaternion.identity, transform);
+        Instantiate(obstaclePrefab, spawnPoint.position, obstaclePrefab.transform.rotation);
+        Instantiate(obstaclePrefab, spawnPoint2.position, obstaclePrefab.transform.rotation);
     }
 }
