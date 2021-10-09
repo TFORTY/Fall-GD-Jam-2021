@@ -5,28 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float startSpeed = 5.0f;
-    public Rigidbody rb;
-    private Vector3 forwardDirection;
-    private Vector3 horizontalMovement;
-    private float horizontalInput;
-    public float horiSpeed = 2.0f;
-    public float bounceForce = 2.0f;
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] float startSpeed = 5.0f;
+    [SerializeField] float horiSpeed = 2.0f;
+    [SerializeField] float bounceForce = 2.0f;
+    [SerializeField] float jumpForce = 7.0f;
+    
+    Rigidbody rb;
+    CapsuleCollider col;
 
-    public LayerMask groundLayer;
-
-    public float jumpForce = 7.0f;
-
-    public CapsuleCollider col;
-
-    bool hasWon;
-
-    bool cannotJump = false;
-
-    bool isSliding;
-
+    float horizontalInput;
     float speed;
     float targetSpeedupPos = -10;
+    
+    bool hasWon;
+    bool cannotJump = false;
+    bool isSliding;
 
     // Start is called before the first frame update
     void Start()
@@ -47,17 +41,6 @@ public class Player : MonoBehaviour
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space) && !cannotJump)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isSliding = true;
-            cannotJump = true;
-        }
-        else
-        {
-            isSliding = false;
-            cannotJump = false;
         }
 
         if (transform.position.z > targetSpeedupPos)
@@ -83,13 +66,15 @@ public class Player : MonoBehaviour
 
     void Slide()
     {
-        if (isSliding)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             transform.rotation = Quaternion.Euler(90, 0, 0);
+            cannotJump = true;
         }
         else
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            cannotJump = false;
         }
     }
 

@@ -129,10 +129,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 5
   rb: {fileID: 1130392732402489937}
-  horiSpeed: 2
-  bounceForce: 2
+  horiSpeed: 4
+  bounceForce: 15
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  jumpForce: 7
+  jumpForce: 8
   col: {fileID: 970901047351580688}
