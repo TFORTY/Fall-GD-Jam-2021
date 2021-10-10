@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnItem: 0
+  spawnObstacles: 1
   obstacleList:
   - {fileID: 2134046785598599935, guid: c982643dce7e6d94cabfecfa433eb844, type: 3}
   - {fileID: 5226199396908327086, guid: 3bb416f95b02eae42a5532e4cdd9ebc5, type: 3}
