@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 670415739}
-  timer: 30
+  timer: 25
 --- !u!114 &670415739
 MonoBehaviour:
   m_ObjectHideFlags: 0
