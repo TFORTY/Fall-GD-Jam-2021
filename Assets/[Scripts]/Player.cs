@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float horiSpeed = 2.0f;
     [SerializeField] float bounceForce = 2.0f;
     [SerializeField] float jumpForce = 7.0f;
-    
+
     Rigidbody rb;
     CapsuleCollider col;
 
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     float speed;
     float targetSpeedupPos = -10;
     
-    bool hasWon;
+    //bool hasWon;
     bool cannotJump = false;
     bool isSliding;
 
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
 
-        hasWon = false;
+        //hasWon = false;
     }
 
     // Update is called once per frame
@@ -56,11 +56,6 @@ public class Player : MonoBehaviour
         Move();
 
         Slide();
-
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            SceneManager.LoadScene("Game2");
-        }
     }
 
     void Move()
@@ -90,10 +85,10 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Finish")
-        {
-            hasWon = true;
-        }
+        //if (collision.gameObject.tag == "Finish")
+        //{
+        //    hasWon = true;
+        //}
 
         if (collision.gameObject.tag == "Obstacle")
         {
@@ -121,10 +116,10 @@ public class Player : MonoBehaviour
 
     private void Win()
     {
-        if (hasWon)
-        {
-            SceneManager.LoadScene("WinScene");
-        }
+        //if (hasWon)
+        //{
+        //    SceneManager.LoadScene("WinScene");
+        //}
     }
 
     private void Lose()
@@ -134,5 +129,15 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("EndScene");
             TimerText.isTimeOut = false;
         }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        FindStartPos();
+    }
+
+    void FindStartPos()
+    {
+        transform.position = GameObject.FindWithTag("SpawnPoint").transform.position;
     }
 }
