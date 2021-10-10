@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] bool spawnItem;
+    [SerializeField] bool spawnObstacles;
     [SerializeField] List<GameObject> obstacleList;
     [SerializeField] List<GameObject> itemList;
 
@@ -13,7 +14,6 @@ public class ObstacleSpawner : MonoBehaviour
     {
         SpawnObstacle();
     }
-
 
     void SpawnObstacle()
     {
@@ -31,22 +31,25 @@ public class ObstacleSpawner : MonoBehaviour
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
         Transform spawnPoint2 = transform.GetChild(obstacleSpawnIndex2).transform;
 
-        if (obstacleSpawnIndex < 3)
+        if (spawnObstacles)
         {
-            Instantiate(obstacleList[0], spawnPoint.position, obstacleList[0].transform.rotation);
-        }
-        else
-        {
-            Instantiate(obstacleList[1], spawnPoint.position, obstacleList[1].transform.rotation);
-        }
+            if (obstacleSpawnIndex < 3)
+            {
+                Instantiate(obstacleList[0], spawnPoint.position, obstacleList[0].transform.rotation);
+            }
+            else
+            {
+                Instantiate(obstacleList[1], spawnPoint.position, obstacleList[1].transform.rotation);
+            }
 
-        if (obstacleSpawnIndex2 < 3)
-        {
-            Instantiate(obstacleList[0], spawnPoint2.position, obstacleList[0].transform.rotation);
-        }
-        else
-        {
-            Instantiate(obstacleList[1], spawnPoint2.position, obstacleList[1].transform.rotation);
+            if (obstacleSpawnIndex2 < 3)
+            {
+                Instantiate(obstacleList[0], spawnPoint2.position, obstacleList[0].transform.rotation);
+            }
+            else
+            {
+                Instantiate(obstacleList[1], spawnPoint2.position, obstacleList[1].transform.rotation);
+            }
         }
 
         if (spawnItem)
