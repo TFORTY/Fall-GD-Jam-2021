@@ -18,9 +18,11 @@ public class Player : MonoBehaviour
     float speed;
     float targetSpeedupPos = -10;
     
-    //bool hasWon;
+    bool hasWon;
     bool cannotJump = false;
     bool isSliding;
+
+    public GameObject[] players;
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +87,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Finish")
+        {
+            hasWon = true;
+        }
+
         if (collision.gameObject.tag == "Obstacle")
         {
             if (collision.contacts[0].normal.z < -0.5f)
@@ -118,10 +125,10 @@ public class Player : MonoBehaviour
 
     private void Win()
     {
-        //if (hasWon)
-        //{
-        //    SceneManager.LoadScene("WinScene");
-        //}
+        if (hasWon)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Lose()
@@ -130,12 +137,20 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("EndScene");
             TimerText.isTimeOut = false;
+            Destroy(gameObject);
         }
     }
 
     private void OnLevelWasLoaded(int level)
     {
         FindStartPos();
+
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        if (players.Length > 1)
+        {
+            Destroy(players[1]);
+        }
     }
 
     void FindStartPos()

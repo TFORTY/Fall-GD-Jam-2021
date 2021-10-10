@@ -42,6 +42,6 @@ public class LevelLoader : MonoBehaviour
         else
         {
             SceneManager.LoadScene(slevelToLoad);
-        }
+        }     
     }
 }
