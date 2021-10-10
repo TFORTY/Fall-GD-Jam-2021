@@ -28,6 +28,7 @@ public class LevelLoader : MonoBehaviour
         if (collisionGameObject.tag == "Player")
         {
             LoadScene();
+            FindObjectOfType<Player>().SetSpeed(5);
         }
     }
 

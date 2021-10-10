@@ -96,7 +96,14 @@ public class Player : MonoBehaviour
         {
             if (collision.contacts[0].normal.z < -0.5f)
             {
-                rb.AddForce(collision.contacts[0].normal * bounceForce, ForceMode.Impulse);
+                if (transform.position.y <= 1)
+                {
+                    rb.AddForce(collision.contacts[0].normal * bounceForce, ForceMode.Impulse);
+                }
+                else
+                {
+                    rb.AddForce(collision.contacts[0].normal * bounceForce / 3, ForceMode.Impulse);
+                }
             }
         }
     }
@@ -149,5 +156,10 @@ public class Player : MonoBehaviour
     void FindStartPos()
     {
         transform.position = GameObject.FindWithTag("SpawnPoint").transform.position;
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 }
