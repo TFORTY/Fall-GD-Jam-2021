@@ -29,6 +29,7 @@ public class LevelLoader : MonoBehaviour
         {
             LoadScene();
             FindObjectOfType<Player>().SetSpeed(5);
+            FindObjectOfType<Player>().ResetTargetSpeedUpPos();
         }
     }
 

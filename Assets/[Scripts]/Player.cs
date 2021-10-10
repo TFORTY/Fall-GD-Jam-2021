@@ -45,11 +45,7 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
-        if (transform.position.z > targetSpeedupPos)
-        {
-            speed *= 1.05f;
-            targetSpeedupPos += 10;
-        }
+        SpeedUp();
 
         Win();
 
@@ -58,6 +54,15 @@ public class Player : MonoBehaviour
         Move();
 
         Slide();
+    }
+
+    public void SpeedUp()
+    {
+        if (transform.position.z > targetSpeedupPos)
+        {
+            speed *= 1.06f;
+            targetSpeedupPos += 10;
+        }
     }
 
     void Move()
@@ -156,6 +161,11 @@ public class Player : MonoBehaviour
     void FindStartPos()
     {
         transform.position = GameObject.FindWithTag("SpawnPoint").transform.position;
+    }
+
+    public void ResetTargetSpeedUpPos()
+    {
+        targetSpeedupPos = -10;
     }
 
     public void SetSpeed(float newSpeed)
