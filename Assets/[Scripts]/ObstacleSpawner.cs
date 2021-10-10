@@ -5,6 +5,8 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] bool spawnItem;
+    [SerializeField] List<GameObject> obstacleList;
+    [SerializeField] List<GameObject> itemList;
 
     // Start is called before the first frame update
     void Start()
@@ -12,9 +14,6 @@ public class ObstacleSpawner : MonoBehaviour
         SpawnObstacle();
     }
 
-    [SerializeField] GameObject obstaclePrefab;
-
-    [SerializeField] List<GameObject> itemList;
 
     void SpawnObstacle()
     {
@@ -32,8 +31,23 @@ public class ObstacleSpawner : MonoBehaviour
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
         Transform spawnPoint2 = transform.GetChild(obstacleSpawnIndex2).transform;
 
-        Instantiate(obstaclePrefab, spawnPoint.position, obstaclePrefab.transform.rotation);
-        Instantiate(obstaclePrefab, spawnPoint2.position, obstaclePrefab.transform.rotation);
+        if (obstacleSpawnIndex < 3)
+        {
+            Instantiate(obstacleList[0], spawnPoint.position, obstacleList[0].transform.rotation);
+        }
+        else
+        {
+            Instantiate(obstacleList[1], spawnPoint.position, obstacleList[1].transform.rotation);
+        }
+
+        if (obstacleSpawnIndex2 < 3)
+        {
+            Instantiate(obstacleList[0], spawnPoint2.position, obstacleList[0].transform.rotation);
+        }
+        else
+        {
+            Instantiate(obstacleList[1], spawnPoint2.position, obstacleList[1].transform.rotation);
+        }
 
         if (spawnItem)
         {
