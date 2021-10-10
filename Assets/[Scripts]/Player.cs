@@ -56,6 +56,11 @@ public class Player : MonoBehaviour
         Move();
 
         Slide();
+
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            SceneManager.LoadScene("Game2");
+        }
     }
 
     void Move()
