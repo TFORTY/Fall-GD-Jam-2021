@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    rb.AddForce(collision.contacts[0].normal * bounceForce / 3, ForceMode.Impulse);
+                    rb.AddForce(collision.contacts[0].normal * bounceForce / 2, ForceMode.Impulse);
                 }
             }
         }
