@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3494433669096770124}
   m_LocalRotation: {x: 0.7069834, y: -0, z: -0, w: 0.7072302}
-  m_LocalPosition: {x: -0.019790106, y: 0.029985009, z: -0.000010463252}
+  m_LocalPosition: {x: -0.019790106, y: 0.029985009, z: 0.007}
   m_LocalScale: {x: 0.0059970017, y: 0.0059970007, z: 0.0059970007}
   m_Children: []
   m_Father: {fileID: 4901439799599375917}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5201677280511649401}
   m_LocalRotation: {x: 0.7069834, y: -0, z: -0, w: 0.7072302}
-  m_LocalPosition: {x: 0.019790106, y: 0.029985009, z: -0.000010463252}
+  m_LocalPosition: {x: 0.019790106, y: 0.029985009, z: 0.007}
   m_LocalScale: {x: 0.0059970017, y: 0.0059970007, z: 0.0059970007}
   m_Children: []
   m_Father: {fileID: 4901439799599375917}
@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 8334669851202824584}
   - component: {fileID: 6074869208591293762}
   - component: {fileID: -678072047822755564}
+  - component: {fileID: -6511911343872593208}
   m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
@@ -197,6 +198,20 @@ MonoBehaviour:
   spawnObstacles: 0
   obstacleList: []
   itemList: []
+--- !u!64 &-6511911343872593208
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5714708574830427287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: a361b9a63248cc442bd0a12976979dea, type: 3}
 --- !u!1 &8289437296310559814
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9181991502054614740}
   m_LocalRotation: {x: 0.7069834, y: -0, z: -0, w: 0.7072302}
-  m_LocalPosition: {x: 0, y: 0.029985009, z: -0.000010463252}
+  m_LocalPosition: {x: 0, y: 0.029985009, z: 0.007}
   m_LocalScale: {x: 0.0059970017, y: 0.0059970007, z: 0.0059970007}
   m_Children: []
   m_Father: {fileID: 4901439799599375917}
