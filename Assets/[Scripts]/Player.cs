@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
 
-        //hasWon = false;
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame

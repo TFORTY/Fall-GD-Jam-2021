@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ff9fd4c3b23b540906b5699c85a086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 340774896}
 --- !u!1 &255996119
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,13 +476,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carl
       objectReference: {fileID: 0}
+    - target: {fileID: 7986739848025294788, guid: 7eb09443e449e264fa067a1885aa3054, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eb09443e449e264fa067a1885aa3054, type: 3}
---- !u!4 &340774896 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7368349142161591696, guid: 7eb09443e449e264fa067a1885aa3054, type: 3}
-  m_PrefabInstance: {fileID: 340774895}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &379197681
 PrefabInstance:
   m_ObjectHideFlags: 0
