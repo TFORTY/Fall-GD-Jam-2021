@@ -973,10 +973,14 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 828e781ed9b90e94d93595311f78657d, type: 2}
     - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
       propertyPath: spawnItem
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
       propertyPath: spawnObstacles
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
+      propertyPath: itemList.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125935038501783967, guid: b8cb19be0317a2041a967dbfff127ac1, type: 3}
